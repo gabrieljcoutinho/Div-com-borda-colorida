@@ -1,0 +1,116 @@
+/* Centralizando na página */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Um fundo escuro para destacar o brilho */
+    font-family: sans-serif;
+}
+
+.card {
+    position: relative;
+    /* Tamanho aumentado */
+    width: 300px;
+    height: 400px;
+    background: #f00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(315deg, #03a9f4, #ff0058);
+    filter: blur(30px);
+}
+
+.card b {
+    position: absolute;
+    inset: 6px;
+    background: rgba(0, 0, 0, 0.8);
+    /* Escureci um pouco mais o fundo interno */
+    z-index: 2;
+}
+
+/* Removido o efeito de esconder/aparecer do conteúdo */
+.card .content {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Sempre visível agora */
+    transform: scale(1.2);
+    bottom: 40px;
+    transition: 0.5s;
+}
+
+/* Estilização do Texto */
+.content .title {
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.2em;
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.content .title span {
+    font-weight: 300;
+    font-size: 0.75em;
+}
+
+/* Redes Sociais sempre visíveis */
+.content .sci {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.sci li {
+    list-style: none;
+}
+
+.sci li a {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    fill: currentColor;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.sci li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
